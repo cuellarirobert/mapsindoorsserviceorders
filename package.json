@@ -1,14 +1,25 @@
 {
   "name": "my-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+  "version": "1.0.0",
+  "description": "",
+  "main": "counter.js",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "esbuild": "^0.17.19",
+    "fsevents": "^2.3.2",
+    "nanoid": "^3.3.6",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.24",
+    "rollup": "^3.25.1",
+    "source-map-js": "^1.0.2"
   },
   "devDependencies": {
     "vite": "^4.3.9"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
