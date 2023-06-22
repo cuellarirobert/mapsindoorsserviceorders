@@ -1,0 +1,230 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 90vw;
+  margin-top: 20px;
+}
+.sidebar {
+  flex: 1;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  padding: 10px;
+  width: 100%; /* Ensure this takes full width */
+}
+
+
+
+.work-orders-form {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.work-orders-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-orders-form label {
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+.work-orders-form input,
+.work-orders-form textarea,
+.work-orders-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.work-orders-form button {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #508f4a;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.work-orders-form button:hover {
+  background-color: #0056b3;
+}
+.mi-search-container .mi-search input[type="search"] {
+  background-color: #FFFFFF;
+  border: 2px solid #888; /* Set the default border color */
+  outline: none;
+  padding: 8px;
+  width: 100%;
+  color: #333;
+  font-size: 16px;
+}
+
+.mi-search-container .mi-search input[type="search"]::placeholder {
+  color: #666;
+}
+
+.mi-search-container .mi-search input[type="search"]:focus {
+  border-color: #0056b3; /* Set the border color when the search bar is clicked */
+}
+
+
+#location-info {
+  margin-bottom: 10px; /* Adjust the margin as per your design */
+}
+
+
+.content {
+  flex: 2;
+  border: 1px solid #ddd;
+  padding: 10px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.map {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+nav {
+  background-color: #508f4a;
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adjust the padding as per your design */
+  margin: 0 auto;
+  max-width: 100%; /* Adjust the max-width as per your design */
+}
+
+
+.nav-logo img {
+  width: auto;
+  height: 40px; /* Adjust the height as per your design */
+  margin-left: 5px; /* Add margin to move the icon a few pixels to the right */
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin-left: 10px;
+}
+
+.nav-menu li:first-child {
+  margin-left: auto;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-menu li a:hover {
+  background-color: #0056b3;
+}
+
+.venueselector-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px; /* Increase the text size */
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px; /* Increase the text size */
+}
+
+#building-address div {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  text-align: left; /* Justify left */
+  font-size: 18px; /* Increase the text size */
+}
+
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
