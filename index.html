@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Work Order Software</title>
-       <link rel="stylesheet" type="text/css" href="src/css/style.css">
+       <link rel="stylesheet" type="text/css" href="src/css/styleMain.css">
+       <link rel="stylesheet" type="text/css" href="src/css/forms.css">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
@@ -69,32 +70,54 @@
 
                     <div id="location-info">
                 <h3>Location Information</h3>
-                <table class ="styled-table">
-                    <tr>
-                        <td>Name</td>
-                        <td id="location-name"></td>
-                    </tr>
-                    <tr>
-                        <td>Building</td>
-                        <td id="location-building"></td>
-                    </tr>
-                    <tr>
-                        <td>Venue</td>
-                        <td id="location-venue"></td>
-                    </tr>
-                    <tr>
-                        <td>Floor Name</td>
-                        <td id="location-floor"></td>
-                    </tr>
-                    <tr>
-                        <td>Type</td>
-                        <td id="location-type"></td>
-                    </tr>
-                </table>
+<table class="styled-table">
+    <tr>
+        <td>Name</td>
+        <td id="location-name"></td>
+        <td>Building</td>
+        <td id="location-building"></td>
+    </tr>
+    <tr>
+        <td>Venue</td>
+        <td id="location-venue"></td>
+        <td>Floor Name</td>
+        <td id="location-floor"></td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td id="location-type"></td>
+        <td>Room ID</td>
+        <td id="location-externalId"></td>
+    </tr>
+</table>
+
             </div>
                     
                     <label for="work-order-title">Work Order Title:</label>
                     <input type="text" id="work-order-title" name="work-order-title" required>
+
+                    <select name="category" id="categorySelector" required>
+     <option value="">Select Category</option>
+    <option value="administrative">Administrative</option>
+    <option value="badges">Badges</option>
+    <option value="cleaning">Cleaning</option>
+    <option value="electrical">Electrical</option>
+    <option value="graffiti">Graffiti</option>
+    <option value="health_safety">Health & Safety</option>
+    <option value="help">Help</option>
+    <option value="it">IT</option>
+    <option value="lift">Lift</option>
+    <option value="locksmith">Locksmith</option>
+    <option value="lost_items">Lost items</option>
+    <option value="minor_works">Minor Works</option>
+    <option value="nuisance">Nuisance</option>
+    <option value="painting">Painting</option>
+    <option value="plumbing">Plumbing</option>
+    <option value="suggest">Suggest</option>
+    <option value="temperature">Temperature</option>
+    <option value="vegetation_trees">Vegetation & Trees</option>
+</select>
+
                     
                     <label for="work-order-description">Description:</label>
                     <textarea id="work-order-description" name="work-order-description" rows="4" required></textarea>
@@ -109,8 +132,9 @@
                     <label for="work-order-date">Date Needed:</label>
                     <input type="date" id="work-order-date" name="work-order-date" required>
 
-                    <label for="work-order-attachment">Attachments:</label>
-                    <input type="file" id="work-order-attachment" name="work-order-attachment">
+           <label for="work-order-attachment">Attachments:</label>
+<input type="file" id="work-order-attachment" name="work-order-attachment" accept="image/png, image/jpeg, image/jpg, image/gif, image/webp">
+
                     
                     <button type="submit">Submit</button>
                 </form>

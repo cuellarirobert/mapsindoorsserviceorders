@@ -1,9 +1,13 @@
 import { defineCustomElements } from 'https://www.unpkg.com/@mapsindoors/components/dist/esm/loader.js';
 import { placeSearch } from './components/search/search.js';
 import { initializeMapClicks } from './components/mapInteraction/clickListening.js';
+import { createGeoData, integrationApiKey } from './components/integrationApi/integrationApi.js';
+
 
 
 let mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN
+
+
 
 defineCustomElements();
 // Get the venue selector and building selector elements
@@ -154,24 +158,67 @@ const submitButton = form.querySelector('button[type="submit"]');
 const locationInput = document.getElementById('work-order-location');
 
 // Disable the submit button initially
-submitButton.disabled = true;
+submitButton.disabled = false;
 
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  
+  console.log("Submit button clicked!");
 
+  // Extract values from the form
+  const requesterName = document.getElementById('requester-name').value;
+  const requesterContact = document.getElementById('requester-contact').value;
+  const workOrderTitle = document.getElementById('work-order-title').value;
+  const category = document.getElementById('categorySelector').value;
+  const descriptionText = document.getElementById('work-order-description').value; // renamed to avoid conflict
+  const priority = document.getElementById('work-order-priority').value;
+  const dateNeeded = document.getElementById('work-order-date').value;
 
+  console.log("Form Data:", {
+    requesterName,
+    requesterContact,
+    workOrderTitle,
+    category,
+    descriptionText,
+    priority,
+    dateNeeded
+  });
 
-
-// Add an event listener to the form's submit event
-form.addEventListener('submit', (event) => {
-  // If a location has not been selected, prevent form submission
-  if (locationInput.value === '') {
-    event.preventDefault();
-    alert('Please select a location before submitting the form.');
+  // Ensure we have the coordinates from map click
+  if (!window.currentlySelectedLocation) {
+    alert('Please select a location on the map before submitting.');
+    return;
   }
-});
 
-// Enable the submit button whenever the location input field has a value
-locationInput.addEventListener('input', () => {
-  submitButton.disabled = locationInput.value === '';
-});
+  if (!window.currentlySelectedParentId) {
+        alert('Failed to determine the location parentId. Please try again.');
+        return;
+    }
 
+  // Gather the data for createGeoData
+  const parentId = currentlySelectedParentId;
+
+  const name = workOrderTitle;
+  const description = descriptionText;
+  const coordinates = window.currentlySelectedLocation; 
+
+  try {
+    const geoDataResult = await createGeoData({ parentId, name, description, coordinates });
+
+    // Check if the status code is in the range 200-299, which indicates a successful response
+    if (geoDataResult.status >= 200 && geoDataResult.status <= 299) {
+        const locationId = geoDataResult.data[0]; // Assuming the response is an array with the ID as its first element
+        const link = `https://storage.googleapis.com/mimtw-289/index.html?locationId=${locationId}&apiKey=${integrationApiKey}`;
+        console.log('GeoData successfully created! Link:', link);
+    } else {
+        console.log('Failed to create GeoData.');
+    }
+} catch (error) {
+    console.error("Error creating GeoData:", error);
+    alert('An error occurred while creating GeoData. Please try again later.');
+}
+
+
+
+});
 
